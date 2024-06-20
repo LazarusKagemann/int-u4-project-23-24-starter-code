@@ -1,18 +1,24 @@
 /* General body styling */
 body {
     font-family: 'Oswald', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: green;
+    color: white;
+    text-align: center;
     line-height: 1.6;
     padding: 20px;
 }
 
+div.questions{
+    background-color: purple;
+    text-align : center;
+    
+}
 button {
     font-size: 16px;
     padding: 10px 20px;
     margin: 10px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: red;
+    color: yellow;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -22,7 +28,7 @@ button {
 /* Title section styling */
 .title h1 {
     text-align: center;
-    color: #333;
+    color: #ff0000;
 }
 
 /* Questions section styling */
@@ -35,7 +41,7 @@ button {
 }
 
 .questions h4 {
-    color: #666;
+    color: white;
 }
 
 .questions img {
@@ -49,6 +55,23 @@ button {
 .result {
     background-color: #e2e2e2;
     text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 50%;
+}
+
+h4{
+    color: white;
+    text-align : center;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;

@@ -1,95 +1,58 @@
-// Get the HTML elements
-let image = document.querySelector(".image");
+
+const textElement = document.getElementById('result');
+const count = document.getElementById('count');
+
+let counter = 0;
+
 let o1 = document.getElementById("o1");
 let o2 = document.getElementById("o2");
-const textElement = document.getElementById('text');
+let o3 = document.getElementById("o3");
+let o4 = document.getElementById("o4");
+o1.value=0;
+o2.value=0;
+o3.value=0;
+o4.value=0;
 
-// Define the choices object  
-var choices = {
-    AA: {
-        message: "Which genre of music are you looking for?",
-        options: [
-            {
-                text: "Rock",
-                nextKey: "AB"
-            },
-            {
-                text: "Synthpop",
-                nextKey: "AB"
-            },
-            {
-                text: "Industrial",
-                nextKey: "AB"
-            },
-            {
-                text: "Ambient",
-                nextKey: "AB"
-            }
-        ]
-    },
-    AB: {
-        message: "How do you feel?",
-        image: "harold.jpg",
-        options: [
-            {
-                text: "Up",
-                nextKey: "end"
-            },
-            {
-                text: "Down",
-                nextKey: "end"
-            }
-        ]
-    },
-    end: {
-        message: "Thank you for playing!",
-        image: "wasteland.png",
-        options: []
-    }
-};
+// textElement.innerHTML = "e";
+// o11.value = "";
 
-// Function to update the text, image, and options based on the current key
-function updateScene(key) {
-    var currentChoice = choices[key];
-    if (!currentChoice) {
-        console.error(`No choice found for key: ${key}`);
-        return;
+console.log(o1.value);
+
+o1.addEventListener("click", function() {
+    o1.value = 1;
+    console.log(o1.value);
+
+  });
+o2.addEventListener("click", function() {
+    o2.value = 1;
+  });
+o3.addEventListener("click", function() {
+    o3.value = 1;
+    check();
+  });
+o4.addEventListener("click", function() {
+    o4.value = 1;
+    check();
+  });
+
+
+function check(){
+    console.log(o1.value);
+    console.log(o2.value);
+    console.log(o3.value);
+    console.log(o4.value);
+
+    if ((o1.value==1 || o2.value==1)&&o3.value==1){
+        textElement.innerHTML = "Try System Shock.";
     }
+
+    else if ((o1.value==1 || o2.value==1)&&o4.value==1){
+        textElement.innerHTML = "Try Cruelty Squad.";
     
-    textElement.innerText = currentChoice.message;
-    image.src = currentChoice.image;
-
-    if (currentChoice.options.length === 0) {
-        o1.style.display = 'none';
-        o2.style.display = 'none';
-    } else {
-        o1.style.display = 'inline-block';
-        o2.style.display = 'inline-block';
-        o1.textContent = currentChoice.options[0].text;
-        o2.textContent = currentChoice.options[1].text;
-        
-        // Update the click event listeners for the options
-        o1.onclick = () => {
-            let nextKey = currentChoice.options[0].nextKey;
-            if (choices[nextKey]) {
-                updateScene(nextKey);
-            } else {
-                console.error(`No choice found for key: ${nextKey}`);
-            }
-        };
-        
-        o2.onclick = () => {
-            let nextKey = currentChoice.options[1].nextKey;
-            if (choices[nextKey]) {
-                updateScene(nextKey);
-            } else {
-                console.error(`No choice found for key: ${nextKey}`);
-            }
-        };
-    }
-}
-
-
-
-// Initialize the first scene
-updateScene("AA");
+    count += 1;
+    o1.value=0;
+    o2.value=0;
+    o3.value=0;
+    o4.value=0;
+    count.innerHTML = counter;
+    }};
